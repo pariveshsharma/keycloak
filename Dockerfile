@@ -1,4 +1,4 @@
-FROM quay.io/keycloak/keycloak:26.1.4
+FROM quay.io/keycloak/keycloak:24.0.1
 
 # Set admin credentials
 ENV KEYCLOAK_ADMIN=admin
@@ -7,14 +7,14 @@ ENV KEYCLOAK_ADMIN_PASSWORD=admin
 ENV KC_BOOTSTRAP_ADMIN_USERNAME=admin
 ENV KC_BOOTSTRAP_ADMIN_PASSWORD=admin
 
-# Set database explicitly to remove deprecation warning
-ENV KC_DB=h2
+# Use dev-file mode instead of h2 (since h2 is deprecated)
+ENV KC_DB=dev-file
 
-# Build Keycloak
+# Build the Keycloak server
 RUN /opt/keycloak/bin/kc.sh build
 
-# Expose the default port
+# Expose port for Render to detect
 EXPOSE 8082
 
-# Start Keycloak with dev mode and bind to 0.0.0.0 (important for Render)
+# Run Keycloak in dev mode, binding to 0.0.0.0 for Render to detect the port
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev", "--http-host=0.0.0.0"]
