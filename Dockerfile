@@ -7,4 +7,5 @@ RUN /opt/keycloak/bin/kc.sh build
 
 EXPOSE 8082
 
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev"]
+
+CMD ["/opt/keycloak/bin/kc.sh", "start-dev", "--http-host=0.0.0.0"]
