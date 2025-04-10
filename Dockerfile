@@ -17,4 +17,5 @@ RUN /opt/keycloak/bin/kc.sh build
 EXPOSE 8082
 
 # Run Keycloak in dev mode, binding to 0.0.0.0 for Render to detect the port
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev", "--http-host=0.0.0.0"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev", "--http-host=0.0.0.0", "--hostname-strict=false", "--hostname-url=https://keycloak-qry1.onrender.com", "--proxy=edge"]
+
