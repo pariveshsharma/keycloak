@@ -1,7 +1,7 @@
 FROM quay.io/keycloak/keycloak:26.1.4
 
-ENV KEYCLOAK_ADMIN=admin
-ENV KEYCLOAK_ADMIN_PASSWORD=admin
+ENV KC_BOOTSTRAP_ADMIN_USERNAME=admin
+ENV KC_BOOTSTRAP_ADMIN_PASSWORD=admin
 
 RUN /opt/keycloak/bin/kc.sh build
 

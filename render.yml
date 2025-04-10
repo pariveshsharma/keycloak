@@ -5,9 +5,9 @@ services:
     plan: free
     dockerfilePath: ./Dockerfile
     envVars:
-      - key: KEYCLOAK_ADMIN
+      - key: KC_BOOTSTRAP_ADMIN_USERNAME
         value: admin
-      - key: KEYCLOAK_ADMIN_PASSWORD
+      - key: KC_BOOTSTRAP_ADMIN_PASSWORD
         value: admin
     ports:
       - 8082
